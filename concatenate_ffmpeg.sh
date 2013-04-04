@@ -25,4 +25,3 @@ ffmpeg -i output.mp4 -f mp3 -ab 192000 -y -vn output.mp3
 
 
 ffmpeg -i output.mp3 -ss 00:00:38 -t 00:05:51 -acodec copy -y recreate_output.mp3
--ss 00:01:12 -t 00:01:42
