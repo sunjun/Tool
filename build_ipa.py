@@ -17,6 +17,7 @@ def replace_line(file_name, line_num, text):
     out = open(file_name, 'w')
     out.writelines(lines)
     out.close()
+    lines.close()
 
 def run_main(read_file):
     ipa_names = open(read_file, 'r').readlines()
@@ -40,6 +41,7 @@ def run_main(read_file):
         print "build ipa"+ ipa_name
         print "*************************"
 
+    ipa_names.close()
                             
 if __name__ == "__main__":
     run_main(sys.argv[1])
