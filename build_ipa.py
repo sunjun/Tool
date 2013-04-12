@@ -30,11 +30,17 @@ def run_main(read_file):
         print "*************************"
         print "build app"+ ipa_name
         print "*************************"
-        build_ipa_command = "/usr/bin/xcrun -sdk iphoneos PackageApplication -v " \
-                            + PROJECT_BUILDDIR + TARGET_NAME + ".app" + " -o " \
-                            + "/Users/sunjun/Desktop/ipa/"+ipa_name.rstrip()+".ipa" \
-                            + " --sign " + SIGN_NAME \
-                            + " --embed " + EMBED
+        build_ipa_command = " ".join(
+            "/usr/bin/xcrun -sdk iphoneos PackageApplication -v",
+            PROJECT_BUILDDIR + TARGET_NAME + ".app" + " -o",
+            "/Users/sunjun/Desktop/ipa/"+ipa_name.rstrip()+".ipa",
+            "--sign",
+            SIGN_NAME,
+            "--embed",
+            EMBED
+        )
+        print build_ipa_command
+        print "************************"
         os.system(build_ipa_command)
         print "*************************"
         print build_ipa_command
