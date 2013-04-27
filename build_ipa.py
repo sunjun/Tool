@@ -17,7 +17,6 @@ def replace_line(file_name, line_num, text):
     out = open(file_name, 'w')
     out.writelines(lines)
     out.close()
-    lines.close()
 
 def run_main(read_file):
     ipa_names = open(read_file, 'r').readlines()
@@ -31,13 +30,13 @@ def run_main(read_file):
         print "build app"+ ipa_name
         print "*************************"
         build_ipa_command = " ".join(
-            "/usr/bin/xcrun -sdk iphoneos PackageApplication -v",
+            ("/usr/bin/xcrun -sdk iphoneos PackageApplication -v",
             PROJECT_BUILDDIR + TARGET_NAME + ".app" + " -o",
             "/Users/sunjun/Desktop/ipa/"+ipa_name.rstrip()+".ipa",
             "--sign",
             SIGN_NAME,
             "--embed",
-            EMBED
+            EMBED)
         )
         print build_ipa_command
         print "************************"
@@ -47,7 +46,6 @@ def run_main(read_file):
         print "build ipa"+ ipa_name
         print "*************************"
 
-    ipa_names.close()
                             
 if __name__ == "__main__":
     run_main(sys.argv[1])
