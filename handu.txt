@@ -30,3 +30,4 @@ hstyle_ios_doudouwang
 hstyle_ios_baopingwang
 hstyle_ios_shouweiruanjianzhan
 hstyle_ios_huajun
+hstyle_ios_xinlang
