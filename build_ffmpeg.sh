@@ -6,8 +6,8 @@ export ARM_LIBO=$ARM_TOOL/lib/gcc/arm-linux-androideabi/4.6.x-google
 export PATH=$ARM_TOOL/bin:$PATH
 export ARM_PRE=arm-linux-androideabi
 
-export LIB_INC=~/Desktop/arm_and/ffmpeg/include
-export LIB_LIB=~/Desktop/arm_and/ffmpeg/lib
+export LIB_INC=~/Desktop/arm_and/include
+export LIB_LIB=~/Desktop/arm_and/lib
 
 
 ./configure  \
@@ -21,7 +21,6 @@ export LIB_LIB=~/Desktop/arm_and/ffmpeg/lib
 	--disable-shared --enable-libx264 --enable-gpl \
 	--disable-asm --disable-yasm   \
 	--prefix=~/Desktop/arm_and/ffmpeg \
-	--disable-amd3dnow --disable-amd3dnowext --disable-mmx --disable-mmx2 --disable-sse --disable-ssse3 \
 	--extra-cflags="-I$ARM_INC -std=gnu99 -I$LIB_INC " \
-	--extra-libs="-lc -lm -ldl -lgcc -lz -lx264 " \
+	--extra-libs="-lc -lm -ldl -lgcc -lz -lx264" \
 	--extra-ldflags=" -L$LIB_LIB -Wl,-rpath-link=$LIB_LIB -nostdlib -Bdynamic  -Wl,--no-undefined -Wl,-z,noexecstack  -Wl,-z,nocopyreloc -Wl,-soname,/system/lib/libz.so -Wl,-rpath-link=$ARM_LIB,-dynamic-linker=/system/bin/linker -L$ARM_LIB -nostdlib $ARM_LIB/crtbegin_dynamic.o $ARM_LIB/crtend_android.o "
